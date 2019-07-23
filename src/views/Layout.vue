@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: cheyongzhi
  * @Date: 2019-07-10 16:36:56
- * @LastEditTime: 2019-07-23 17:12:21
+ * @LastEditTime: 2019-07-23 17:50:02
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -17,7 +17,7 @@
         v-model="isCollapsed"
         breakpoint="md"
       >
-        <side-menu :collapsed="isCollapsed"></side-menu>
+        <side-menu :collapsed="isCollapsed" :list="menuList"></side-menu>
       </Sider>
       <Layout>
         <Header :style="{padding: 0}" class="layout-header-bar">
@@ -46,7 +46,36 @@ export default {
   name: "layout",
   data() {
     return {
-      isCollapsed: false
+      isCollapsed: false,
+      menuList: [
+        {
+          title: "首页",
+          name:'home',
+          icon: "ios-home"
+        },
+        {
+          title: "人事",
+          name:'personnel',
+          icon: "ios-home",
+          children: [
+            {
+              title: "招聘",
+              name:'recruitment',
+              icon: "ios-home"
+            },
+            {
+              title: "薪酬",
+              name:'wages',
+              icon: "ios-home",
+              children:[{
+                title:'调薪',
+                name:'addWages',
+                icon:"ios-home"
+              }]
+            }
+          ]
+        }
+      ]
     };
   },
   computed: {
@@ -77,6 +106,7 @@ export default {
  <style scoped>
 .layout {
   height: 100%;
+  width:100%;
   background: #f5f7f9;
   position: relative;
   border-radius: 4px;
