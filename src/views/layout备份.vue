@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: cheyongzhi
  * @Date: 2019-07-10 16:36:56
- * @LastEditTime: 2019-07-23 17:12:21
+ * @LastEditTime: 2019-07-23 17:10:14
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -17,7 +17,20 @@
         v-model="isCollapsed"
         breakpoint="md"
       >
-        <side-menu :collapsed="isCollapsed"></side-menu>
+        <Menu active-name="1-2" theme="dark" width="auto" :class="menuitemClasses">
+          <MenuItem name="1-1">
+            <Icon type="ios-navigate"></Icon>
+            <span>Option 1</span>
+          </MenuItem>
+          <MenuItem name="1-2">
+            <Icon type="ios-search"></Icon>
+            <span>Option 2</span>
+          </MenuItem>
+          <MenuItem name="1-3">
+            <Icon type="ios-settings"></Icon>
+            <span>Option 3</span>
+          </MenuItem>
+        </Menu>
       </Sider>
       <Layout>
         <Header :style="{padding: 0}" class="layout-header-bar">
@@ -39,7 +52,7 @@
 </template>
 
 <script>
-import SideMenu from "@/components/side-menu";
+import SideMenu from '@/components/side-menu'
 import { mapActions } from "vuex";
 // @ is an alias to /src
 export default {
@@ -69,7 +82,7 @@ export default {
       this.$router.push({ name: "login" });
     }
   },
-  components: {
+  components:{
     SideMenu
   }
 };
