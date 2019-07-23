@@ -1,0 +1,2 @@
+// 是否设置反向代理
+export const baseURL = process.env.NODE_ENV === 'production' ? ' https://www.easy-mock.com/mock/5d2d5cfb2d4ca76cb801107a/admin':' https://www.easy-mock.com/mock/5d2d5cfb2d4ca76cb801107a/admin'
