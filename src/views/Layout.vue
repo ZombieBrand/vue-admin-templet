@@ -2,14 +2,13 @@
  * @Description: In User Settings Edit
  * @Author: cheyongzhi
  * @Date: 2019-07-10 16:36:56
- * @LastEditTime: 2019-07-23 17:50:02
+ * @LastEditTime: 2019-07-24 14:21:01
  * @LastEditors: Please set LastEditors
  -->
 <template>
   <div class="layout">
     <Layout style="height:100%">
       <Sider
-        :style="{background: '#17233d'}"
         ref="side1"
         hide-trigger
         collapsible

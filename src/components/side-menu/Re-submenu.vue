@@ -1,17 +1,15 @@
 <template>
-  <Submenu :name=parent.name>
+  <Submenu :name="parent.name">
     <template slot="title">
       <Icon :type="parent.icon"></Icon>
       {{parent.title}}
-      <template v-for="item in list">
-        <re-submenu
-          v-if="parent.children"
-          :key="`menu_${item.name}`"
-          :name="item.name"
-          :parent="item"
-        ></re-submenu>
-        <menu-item v-else :key="`menu_${item.name}`" :name="item.name">{{item.name}}</menu-item>
-      </template>
+    </template>
+    <template v-for="item in parent.children">
+      <re-submenu v-if="item.children" :key="`menu_${item.name}`" :name="item.name" :parent="item"></re-submenu>
+      <MenuItem v-else :key="`menu_${item.name}`" :name="item.name">
+        <Icon :type="item.icon"></Icon>
+        {{item.title}}
+      </MenuItem>
     </template>
   </Submenu>
 </template>
