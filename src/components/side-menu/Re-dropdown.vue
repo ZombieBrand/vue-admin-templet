@@ -1,6 +1,6 @@
 <template>
   <Dropdown placement="right-start">
-    <span class="drop-menu-span">
+    <span class="drop-menu-span" :style="titleStyle">
       <Icon :type="parent.icon" :size="20" :color="iconColor"></Icon>
       <span v-if="showTitle">{{parent.title}}</span>
     </span>
@@ -32,6 +32,13 @@ export default {
     showTitle: {
       type: Boolean,
       default: true
+    }
+  },
+  computed: {
+    titleStyle() {
+      return {
+        textAlign: this.showTitle ? "left" : "center"
+      };
     }
   }
 };
