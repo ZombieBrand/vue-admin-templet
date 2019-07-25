@@ -15,16 +15,16 @@
 </template>
 <script>
 export default {
-  name: "ReSubmenu",
+  name: 'ReSubmenu',
   props: {
     parent: {
       type: Object,
       default: () => {
-        return {};
+        return {}
       }
     }
   }
-};
+}
 </script>
 <style scoped>
 </style>

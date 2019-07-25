@@ -17,17 +17,17 @@
 </template>
 <script>
 export default {
-  name: "ReDropdown",
+  name: 'ReDropdown',
   props: {
     parent: {
       type: Object,
       default: () => {
-        return {};
+        return {}
       }
     },
     iconColor: {
       type: String,
-      default: "#515a6e"
+      default: '#515a6e'
     },
     showTitle: {
       type: Boolean,
@@ -35,13 +35,13 @@ export default {
     }
   },
   computed: {
-    titleStyle() {
+    titleStyle () {
       return {
-        textAlign: this.showTitle ? "left" : "center"
-      };
+        textAlign: this.showTitle ? 'left' : 'center'
+      }
     }
   }
-};
+}
 </script>
 <style lang="scss">
 .drop-menu-span {

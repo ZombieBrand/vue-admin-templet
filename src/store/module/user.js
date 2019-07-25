@@ -17,7 +17,6 @@ const actions = {
         password
       })
         .then(res => {
-          console.log(res, "login1");
           if (parseInt(res.data.code) === 200) {
             setToken(res.data.token);
             resolve();
@@ -26,7 +25,6 @@ const actions = {
           }
         })
         .catch(error => {
-          console.log(error, "login");
           reject(error);
         });
     });

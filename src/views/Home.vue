@@ -15,10 +15,10 @@
 <script>
 // @ is an alias to /src
 export default {
-  name: "home",
-  created() {},
-  data() {
-    return {};
+  name: 'home',
+  created () {},
+  data () {
+    return {}
   },
   methods: {
     // //进入组件但是未渲染前守卫导航
@@ -38,5 +38,5 @@ export default {
     //   }
     // }
   }
-};
+}
 </script>
