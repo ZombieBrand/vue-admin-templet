@@ -6,10 +6,10 @@
     </template>
     <template v-for="item in parent.children">
       <re-submenu v-if="item.children" :key="`menu_${item.name}`" :name="item.name" :parent="item"></re-submenu>
-      <MenuItem v-else :key="`menu_${item.name}`" :name="item.name">
+      <menu-item v-else :key="`menu_${item.name}`" :name="item.name">
         <Icon :type="item.icon"></Icon>
         {{item.title}}
-      </MenuItem>
+      </menu-item>
     </template>
   </Submenu>
 </template>

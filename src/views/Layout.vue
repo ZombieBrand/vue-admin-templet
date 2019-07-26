@@ -55,22 +55,22 @@
           {
             title: '人事',
             name: 'personnel',
-            icon: 'ios-home',
+            icon: 'ios-add',
             children: [
               {
                 title: '招聘',
                 name: 'recruitment',
-                icon: 'ios-home'
+                icon: 'ios-add-circle'
               },
               {
                 title: '薪酬',
                 name: 'wages',
-                icon: 'ios-home',
+                icon: 'ios-alarm',
                 children: [
                   {
                     title: '调薪',
                     name: 'addWages',
-                    icon: 'ios-home'
+                    icon: 'ios-albums'
                   }
                 ]
               }
@@ -117,22 +117,6 @@
     .layout-header-bar {
         background: #fff;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-    }
-
-    .layout-logo-left {
-        width: 90%;
-        height: 30px;
-        background: #5b6270;
-        border-radius: 3px;
-        margin: 15px auto;
-    }
-
-    .menu-icon {
-        transition: all 0.3s;
-    }
-
-    .rotate-icon {
-        transform: rotate(-90deg);
     }
 
     .menu-item span {

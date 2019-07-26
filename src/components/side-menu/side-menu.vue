@@ -1,7 +1,7 @@
 <template>
     <div class="side-menu-wrapper">
         <slot></slot>
-        <Menu theme="dark" v-if="!collapsed" width="auto">
+        <Menu @on-select="handelSelect" theme="dark" v-show="!collapsed" width="auto">
             <template v-for="item in list">
                 <re-submenu
                         :key="`menu_${item.name}`"
@@ -9,22 +9,26 @@
                         :parent="item"
                         v-if="item.children"
                 ></re-submenu>
-                <MenuItem :key="`menu_${item.name}`" :name="item.name" v-else>{{item.name}}</MenuItem>
+                <menu-item :key="`menu_${item.name}`" :name="item.name" v-else>
+                    <Icon :type="item.icon"/>
+                    {{item.name}}
+                </menu-item>
             </template>
         </Menu>
         <div class="drop-wrapper" v-show="collapsed">
             <template v-for="item in list">
                 <re-dropdown
-                        :key="item.name"
+                        icon-color="#fff"
+                        :key="`drop_${item.name}`"
                         :parent="item"
                         :show-title="false"
-                        icon-color="#fff"
+                        @on-select="handelSelect"
                         v-if="item.children"
                 ></re-dropdown>
                 <Tooltip :content="item.title" :key="`drop_${item.name}`" placement="right" v-else>
-          <span class="drop-menu-span">
-            <Icon :color="'#fff'" :size="20" :type="item.icon"></Icon>
-          </span>
+                    <span @click="handelClick(item.name)" class="drop-menu-span">
+                        <Icon color="#fff" :size="20" :type="item.icon"></Icon>
+                    </span>
                 </Tooltip>
             </template>
         </div>
@@ -36,6 +40,11 @@
 
   export default {
     name: 'SideMenu',
+    data () {
+      return {
+        iconColor: '#fff'
+      }
+    },
     props: {
       collapsed: {
         type: Boolean,
@@ -48,6 +57,14 @@
         }
       }
     },
+    methods: {
+      handelClick (name) {
+        console.log(name)
+      },
+      handelSelect (name) {
+        console.log(name)
+      }
+    },
     components: {
       ReSubmenu,
       ReDropdown
@@ -57,7 +74,6 @@
 <style lang="scss">
     .side-menu-wrapper {
         width: 100%;
-
         .ivu-tooltip,
         .drop-menu-span {
             display: block;

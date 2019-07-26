@@ -22,7 +22,7 @@
                     <span class="rule" v-show="ruleInline.correctPhone">请输入11位手机号</span>
                 </div>
                 <div class="row password">
-                    <div  class="input-group"
+                    <div class="input-group"
                          id="password">
                         <Icon size="23" type="ios-unlock-outline"/>
                         <input @blur="regPw" placeholder="请输入密码" type="password" v-model="userInfo.password"/>
@@ -102,19 +102,21 @@
        * @return: 用户信息,token
        */
       handleSubmit () {
-        this.login({
-          userName: this.userInfo.userName,
-          password: this.userInfo.password
-        })
-          .then(() => {
-            this.keep()
-            this.$router.push({
-              name: 'home'
+        if (!this.ruleInline.correctPhone && !this.correctPw) {
+          this.login({
+            userName: this.userInfo.userName,
+            password: this.userInfo.password
+          })
+            .then(() => {
+              this.keep()
+              this.$router.push({
+                name: 'home'
+              })
             })
-          })
-          .catch(error => {
-            console.log(error)
-          })
+            .catch(error => {
+              console.log(error)
+            })
+        }
       },
       /**
        * @description:视频播放结束切换播放
@@ -244,12 +246,15 @@
         color: #ddd;
         background-color: #fff;
     }
+
     .row.password {
         margin-top: 20px;
     }
-    .username,.password{
+
+    .username, .password {
         position: relative;
     }
+
     .row input {
         height: 45px;
         width: 100%;
@@ -312,9 +317,9 @@
     }
 
     .rule {
-        position:absolute;
-        top:45px;
-        left:10px;
+        position: absolute;
+        top: 45px;
+        left: 10px;
         color: red;
     }
 </style>

@@ -7,8 +7,8 @@
  -->
 <template>
   <Card :bordered="false">
-    <p slot="title">No border title</p>
-    <p>Content of no border type. Content of no border type. Content of no border type. Content of no border type.</p>
+    <Icon :size="20" type="ios-home" color="#515a6e"/>
+    <span>人事</span>
   </Card>
 </template>
 
